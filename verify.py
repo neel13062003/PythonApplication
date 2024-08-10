@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import mysql.connector
 import dns.resolver
 import smtplib
 from datetime import datetime
@@ -14,13 +13,7 @@ DB_NAME = "email"
 # Cache for DNS lookups
 dns_cache = {}
 
-def get_db_connection():
-    return mysql.connector.connect(
-        host=DB_HOST,
-        user=DB_USER,
-        password=DB_PASSWORD,
-        database=DB_NAME
-    )
+
 
 def is_email_valid(email):
     if '@' not in email:
